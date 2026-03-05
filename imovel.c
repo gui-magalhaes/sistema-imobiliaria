@@ -106,6 +106,7 @@ void ler_imovel(Imovel *imovel) {
         printf("Informe o tipo de operacao ('venda' ou 'aluguel'):\n");
         fgets(imovel->tipo_operacao, 10, stdin);
         para_minusculo(imovel->tipo_operacao); // Transformar em minúsculo pra garantir
+        imovel->tipo_operacao[strcspn(imovel->tipo_operacao, "\n")] = '\0'; // Cortar o \n da string para nao dar loop infinito
 
         if ((strcmp(imovel->tipo_operacao, "venda") == 0) || (strcmp(imovel->tipo_operacao, "aluguel") == 0)) {
             break; // Se tipo de operação informada é "venda" ou "operacao", sai do loop
