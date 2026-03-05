@@ -116,8 +116,8 @@ void ler_imovel(Imovel *imovel) {
 
     printf("Informe o valor do imovel em reais (R$):\n");
     scanf("%f", &imovel->valor);
-    
-    limpar_buffer();
+
+    limpar_buffer(); // Tem que limpar o buffer, porque esse scanf pula linha, o que faria o próximo fgets() não ler nada
 
     if (strcmp(imovel->tipo_operacao, "aluguel") == 0) {
         printf("Informe o nome do inquilino (ou ENTER para deixar disponivel):\n");
@@ -266,7 +266,7 @@ void listar_alugueis() {
     bool imprimiu = false;
     No* p = inicio;
     while (p != NULL) {
-        if (strcmp(p->valor.tipo_operacao, "aluguel") == 0) {   
+        if (strcmp(p->valor.tipo_operacao, "aluguel") == 0) {  // Se é um imóvel alugado
             imprimir_imovel(p->valor);
             printf("\n");
             imprimiu = true;
