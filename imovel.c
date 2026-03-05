@@ -98,9 +98,11 @@ bool remover_imovel(int codigo) {
 void ler_imovel(Imovel *imovel) {
     printf("Informe a descricao do imovel:\n");
     fgets(imovel->descricao, MAX_STR, stdin);
+    imovel->descricao[strcspn(imovel->descricao, "\n")] = '\0';
 
     printf("Informe a localizacao do imovel:\n");
     fgets(imovel->localizacao, MAX_STR, stdin);
+    imovel->localizacao[strcspn(imovel->localizacao, "\n")] = '\0';
 
     while (true) { // Loop infinito, até algo quebrar pra fora dele
         printf("Informe o tipo de operacao ('venda' ou 'aluguel'):\n");
@@ -146,7 +148,11 @@ void imprimir_imovel(Imovel imovel) {
             printf("Comprador: (disponivel para venda)\n");
         }
     } else {
-        printf("Inquilino: %s\n", imovel.cliente);
+        if (strcmp(imovel.tipo_operacao, "aluguel") == 0) {
+            printf("Inquilino: %s\n", imovel.cliente);
+        } else {
+            printf("Comprador: %s\n", imovel.cliente);
+        }
     }
 }
 
@@ -165,7 +171,7 @@ void excluir(int codigo) {
     bool removeu = remover_imovel(codigo);
 
     if (removeu) {
-        printf("Imovel de código %d deletado com sucesso.\n", codigo);
+        printf("Imovel de codigo %d deletado com sucesso.\n", codigo);
     } else {
         printf("Nao foi possível encontrar um imovel com o codigo %d.\n", codigo);
     }
