@@ -2,7 +2,6 @@
 #define IMOVEL_H
     
 #define MAX_STR 100
-#define NULL 0
 
 typedef struct {
     int codigo;
@@ -20,9 +19,11 @@ typedef struct no {
 
 
 void cadastrar();
-bool excluir(int codigo);
+void excluir(int codigo);
+void consultar(int codigo);
 void alterar(int codigo);
-Imovel consultar(int codigo);
+void registrar_venda(int codigo);
+void registrar_aluguel(int codigo);
 void listar_todos();
 void listar_alugueis();
 
