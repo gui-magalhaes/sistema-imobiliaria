@@ -100,3 +100,30 @@ Imovel* consultar(int codigo) {
 
     return NULL;
 }
+
+void listar_inquilinos_aluguel() {
+    No *p = inicio;
+    printf("\n Inquilinos que moram de aluguel:");
+    while (p != NULL) {
+        if (p->valor.tipo_operacao == "aluguel") {
+            printf("\n %s", p->valor.cliente);
+        }
+    }
+}
+void vender(int codigo) {
+    Imovel imovel = consultar(codigo);
+    if (imovel == NULL) {
+        return;
+    }
+    if (imovel.valor.tipo_operacao == "aluguel") {
+        printf("\n Imóvel não disponível para venda");
+        return;
+    }
+    excuir(codigo);
+    printf("\n Imóvel vendido")
+    return;
+}
+
+void main () {
+
+}
