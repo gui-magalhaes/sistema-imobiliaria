@@ -9,8 +9,8 @@ int main(){
 
     do {
         printf("\n=============Menu=============\n");
-        printf("Digite o número para executar a função\n");
-        printf("1 - Cadastrar imóvel\n");
+        printf("Digite o numero para executar a funcao\n");
+        printf("1 - Cadastrar imovel\n");
         printf("2 - Listar todos\n");
         printf("3 - Listar por ID\n");
         printf("4 - Listar todos os alugueis\n");
